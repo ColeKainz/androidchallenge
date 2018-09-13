@@ -5,9 +5,18 @@
     <string name="saved_accounts">accounts</string>
     <string name="default_account">default_account</string>
 
+    <!-- Layout Strings -->
+    <string name="signup_email_hint">Example@example.com</string>
+    <string name="signup_name_hint">Name</string>
+    <string name="signup_button_text">Sign up</string>
+    <string name="welcome_msg">Welcome Hero</string>
+
     <!-- App Strings -->
     <string name="app_name">Android Challenge</string>
     <string name="load_user_failed">Could not load default user.</string>
     <string name="title_activity_kingdoms">Kingdoms</string>
     <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

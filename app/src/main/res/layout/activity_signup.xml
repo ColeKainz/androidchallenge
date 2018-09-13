@@ -2,8 +2,77 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constrainlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:background="@color/colorPrimary"
+    android:visibility="visible"
     tools:context=".Signin.Signup">
+
+
+    <TextView
+        android:id="@+id/welcomeSignupMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_msg"
+        android:textColor="?attr/colorAccent"
+        android:textSize="30dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="@dimen/signin_panel_width"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/nameSignupText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/signin_layout_margin"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="@string/signup_name_hint"
+            android:inputType="textPersonName"
+            android:paddingLeft="@dimen/signin_panel_padding"
+            android:selectAllOnFocus="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameSignupText" />
+
+        <EditText
+            android:id="@+id/emailSignupText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/signin_layout_margin"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="@string/signup_email_hint"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="@dimen/signin_panel_padding"
+            android:selectAllOnFocus="true"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/emailSignupText"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/signinButton"
+            style="@android:style/Widget.DeviceDefault.Light.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimaryDark"
+            android:text="@string/signup_button_text"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
