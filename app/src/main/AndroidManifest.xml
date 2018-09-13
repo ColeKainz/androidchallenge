@@ -16,7 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Signin.Signin"></activity>
+        <activity android:name=".Signin.Signin" />
+        <activity
+            android:name=".InformationBoard.Kingdoms"
+            android:label="@string/title_activity_kingdoms"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Signin.Signup"></activity>
     </application>
 
 </manifest>

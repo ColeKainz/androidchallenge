@@ -1,3 +1,13 @@
 <resources>
+    <!-- Signin info -->
+    <string name="sigin_name">com.myriadapps.colekainz.androidchallenge.signin_name</string>
+    <string name="sigin_email">com.myriadapps.colekainz.androidchallenge.signin_email</string>
+    <string name="saved_accounts">accounts</string>
+    <string name="default_account">default_account</string>
+
+    <!-- App Strings -->
     <string name="app_name">Android Challenge</string>
+    <string name="load_user_failed">Could not load default user.</string>
+    <string name="title_activity_kingdoms">Kingdoms</string>
+    <string name="action_settings">Settings</string>
 </resources>
