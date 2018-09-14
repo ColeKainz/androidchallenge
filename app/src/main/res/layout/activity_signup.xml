@@ -38,7 +38,7 @@
         <EditText
             android:id="@+id/nameSignupText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/signin_item_height"
             android:layout_marginBottom="@dimen/signin_layout_margin"
             android:background="#FFFFFF"
             android:ems="10"
@@ -52,7 +52,7 @@
         <EditText
             android:id="@+id/emailSignupText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/signin_item_height"
             android:layout_marginBottom="@dimen/signin_layout_margin"
             android:background="#FFFFFF"
             android:ems="10"
@@ -65,10 +65,9 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/signinButton"
-            style="@android:style/Widget.DeviceDefault.Light.Button"
+            android:id="@+id/signupButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/signin_item_height"
             android:background="?attr/colorPrimaryDark"
             android:text="@string/signup_button_text"
             android:textColor="#FFFFFF" />

@@ -68,5 +68,8 @@ public class MainActivity extends AppCompatActivity {
             Intent signup = new Intent(this, Signup.class);
             startActivity(signup);
         }
+
+        //Kill main activity
+        finish();
     }
 }
