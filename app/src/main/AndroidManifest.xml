@@ -3,14 +3,14 @@
     package="com.myriadapps.colekainz.androidchallenge">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,12 +18,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Signin.Signin" />
+        <activity android:name=".Signin.SigninActivity" />
         <activity
-            android:name=".InformationBoard.Kingdoms"
-            android:label="@string/title_activity_kingdoms"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Signin.Signup"></activity>
+            android:name=".InformationBoard.KingdomsActivity"
+            android:label="@string/title_activity_kingdoms" />
+        <activity android:name=".Signin.SignupActivity" />
+        <activity
+            android:name=".InformationBoard.KingdomInfoActivity"
+            android:parentActivityName=".InformationBoard.KingdomsActivity" />
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".InformationBoard.KingdomsActivity" />
+
+        <activity
+            android:name=".InformationBoard.NotRespondingActivity"
+            android:label="@string/title_activity_not_responding"></activity>
     </application>
 
 </manifest>

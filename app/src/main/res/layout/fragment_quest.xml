@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="10"
+    android:orientation="vertical"
+    tools:context=".InformationBoard.QuestFragment">
+    
+    <ImageView
+        android:id="@+id/questInfoImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:src="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/questInfoQuestDescription"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:text="Quest Description"
+        android:paddingLeft="@dimen/kingdom_info_left_padding"
+        android:paddingTop="@dimen/kingdom_info_description_top_padding"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/kingdom_info_left_padding">
+
+        <ImageView
+            android:id="@+id/questInfoGiverImage"
+            android:layout_width="@dimen/kingdom_info_giver_image_size"
+            android:layout_height="@dimen/kingdom_info_giver_image_size"
+            android:src="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/questInfoGiverName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:paddingLeft="@dimen/kingdom_info_left_padding"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/questInfoGiverDescription"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:text="TextView"
+        android:paddingLeft="@dimen/kingdom_info_left_padding"
+        android:paddingTop="@dimen/kingdom_info_description_top_padding" />
+
+</LinearLayout>

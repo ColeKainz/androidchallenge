@@ -8,7 +8,7 @@
     android:layout_gravity="center_vertical"
     android:background="@color/colorPrimary"
     android:visibility="visible"
-    tools:context=".Signin.Signup">
+    tools:context=".Signin.SignupActivity">
 
 
     <TextView
@@ -35,34 +35,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/nameSignupText"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/signin_item_height"
-            android:layout_marginBottom="@dimen/signin_layout_margin"
-            android:background="#FFFFFF"
-            android:ems="10"
-            android:hint="@string/signup_name_hint"
-            android:inputType="textPersonName"
-            android:paddingLeft="@dimen/signin_panel_padding"
-            android:selectAllOnFocus="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameSignupText" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/signin_panel_padding"
+            android:background="@color/colorAccent" >
 
-        <EditText
-            android:id="@+id/emailSignupText"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/signin_item_height"
-            android:layout_marginBottom="@dimen/signin_layout_margin"
-            android:background="#FFFFFF"
-            android:ems="10"
-            android:hint="@string/signup_email_hint"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="@dimen/signin_panel_padding"
-            android:selectAllOnFocus="true"
-            android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/emailSignupText"
-            app:layout_constraintTop_toTopOf="parent" />
+            <EditText
+                android:id="@+id/nameSignupText"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/signin_item_height"
+                android:ems="10"
+                android:hint="@string/signup_name_hint"
+                android:inputType="textPersonName"
+                android:paddingLeft="@dimen/signin_panel_padding"
+                android:selectAllOnFocus="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameSignupText" />
+
+            <EditText
+                android:id="@+id/emailSignupText"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/signin_item_height"
+                android:ems="10"
+                android:hint="@string/signup_email_hint"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="@dimen/signin_panel_padding"
+                android:selectAllOnFocus="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameSignupText" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/signupButton"
@@ -70,8 +73,20 @@
             android:layout_height="@dimen/signin_item_height"
             android:background="?attr/colorPrimaryDark"
             android:text="@string/signup_button_text"
-            android:textColor="#FFFFFF" />
+            android:textColor="?attr/colorAccent" />
 
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/signupProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/signin_panel_padding"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

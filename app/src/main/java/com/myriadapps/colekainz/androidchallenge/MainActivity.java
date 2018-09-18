@@ -7,69 +7,67 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.myriadapps.colekainz.androidchallenge.InformationBoard.Kingdoms;
-import com.myriadapps.colekainz.androidchallenge.Signin.Signin;
-import com.myriadapps.colekainz.androidchallenge.Signin.Signup;
+import com.google.gson.Gson;
+import com.myriadapps.colekainz.androidchallenge.InformationBoard.KingdomsActivity;
+import com.myriadapps.colekainz.androidchallenge.Signin.Account;
+import com.myriadapps.colekainz.androidchallenge.Signin.SigninActivity;
+import com.myriadapps.colekainz.androidchallenge.Signin.SignupActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import butterknife.BindString;
+import butterknife.ButterKnife;
+
+/**
+ * Checks whether there are saved accounts and a default user.
+ */
 
 public class MainActivity extends AppCompatActivity {
 
+    //Error messages.
     @BindString(R.string.load_user_failed) String loadUserFailedMSG;
 
     //Signin info.
     @BindString(R.string.saved_accounts) String savedAccountsString;
     @BindString(R.string.default_account) String defaultAccountString;
-    @BindString(R.string.sigin_name) String signinName;
-    @BindString(R.string.sigin_email) String signinEmail;
+    @BindString(R.string.signin_account) String signinName;
+
+    private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ButterKnife.bind(this);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        String savedAccounts = prefs.getString(savedAccountsString, null);
-        String defaultAccount = prefs.getString(defaultAccountString, null);
+        String savedAccountsJSON = prefs.getString(savedAccountsString, "");
+        String defaultAccountJSON = prefs.getString(defaultAccountString, "");
+
+        Gson gson = new Gson();
+        Account[] accounts = gson.fromJson(savedAccountsJSON, Account[].class);
+        Account defaultAccount = gson.fromJson(defaultAccountJSON, Account.class);
 
         //Check if there are saved accounts.
         //If not, default to signup.
-        if(savedAccounts != null && !savedAccounts.isEmpty()) {
-            if(defaultAccount != null && !defaultAccount.isEmpty()) {
-                //Try to load default user.
-                try {
-                    JSONObject defaultSignin = new JSONObject(defaultAccount);
-
-                    String name = defaultSignin.getString("name");
-                    String email = defaultSignin.getString("email");
-
-                    Intent kingdoms = new Intent(this, Kingdoms.class);
-                    kingdoms.putExtra(signinName, name);
-                    kingdoms.putExtra(signinEmail, email);
-                    startActivity(kingdoms);
-                } catch(JSONException e) {
-                    Toast errMsg = Toast.makeText(this, loadUserFailedMSG,
-                            Toast.LENGTH_LONG);
-                    errMsg.show();
-
-                    //Cannot load user, so default to sign in screen.
-                    Intent signin = new Intent(this, Signin.class);
-                    startActivity(signin);
-                }
+        if(accounts.length > 0) {
+            //Check if there is a default account.
+            //If not go to signin.
+            if(defaultAccount != null) {
+                //Load default account.
+                Intent kingdoms = new Intent(this, KingdomsActivity.class);
+                startActivity(kingdoms);
             } else {
-                //No default account, load signin.
-                Intent signin = new Intent(this, Signin.class);
+                Intent signin = new Intent(this, SigninActivity.class);
                 startActivity(signin);
             }
         } else {
-            Intent signup = new Intent(this, Signup.class);
+            Intent signup = new Intent(this, SignupActivity.class);
             startActivity(signup);
         }
 
-        //Kill main activity
+        //Kill main activity.
         finish();
     }
 }
