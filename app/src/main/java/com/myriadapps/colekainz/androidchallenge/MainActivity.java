@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Check if there are saved accounts.
         //If not, default to signup.
-        if(accounts.length > 0) {
+        if(accounts != null && accounts.length > 0) {
             //Check if there is a default account.
             //If not go to signin.
             if(defaultAccount != null) {

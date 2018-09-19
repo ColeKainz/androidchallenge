@@ -135,11 +135,8 @@ public class KingdomsActivity extends AppCompatActivity {
     //has been persisted, so navigate to the signin activity.
     @Override
     public void onBackPressed() {
-        //If back pressed, let user switch accounts.
-        Intent intent = new Intent(getApplicationContext(), SigninActivity.class);
-        startActivity(intent);
-
-        finish();
+        //If back pressed, log out.
+        onLogoutClick();
     }
 
     @Override

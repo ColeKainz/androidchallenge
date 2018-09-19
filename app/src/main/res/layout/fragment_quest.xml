@@ -7,7 +7,7 @@
     android:weightSum="10"
     android:orientation="vertical"
     tools:context=".InformationBoard.QuestFragment">
-    
+
     <ImageView
         android:id="@+id/questInfoImage"
         android:layout_width="match_parent"
